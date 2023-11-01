@@ -1,0 +1,59 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  border: 0;
+}
+
+#container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  overflow-y: hidden;
+  height: 98vh;
+  position: static;
+  padding: 5%;
+}
+
+:where(.card) {
+  background-color: navajowhite;
+  height: 100%;
+  margin-right: 90vh;
+  flex: 1;
+  margin: 6px;
+  transition: all 700ms ease-in;
+  border-radius: 50px;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &.first {
+    background-image: url('https://picsum.photos/1000?tag=1');
+  }
+
+  &.second {
+    background-image: url('https://picsum.photos/1000?tag=2');
+  }
+
+  &.third {
+    background-image: url('https://picsum.photos/1000?tag=3');
+  }
+
+  &.fourth {
+    background-image: url('https://picsum.photos/1000?tag=4');
+  }
+
+  &.fifth {
+    background-image: url('https://picsum.photos/1000?tag=5');
+  }
+
+  &.active {
+    flex: 50%;
+  }
+}
+
+
+:where(img) {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+
+}
