@@ -1,0 +1,95 @@
+:root {
+  --main-color: #E0E0E0;
+  --second-color: #3498DA;
+  --border-size: 3px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  height: 98vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  & .progress {
+    width: 350px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+
+    & .progress-bar {
+      position: absolute;
+      height: var(--border-size);
+      width: 100%;
+      background-color: var(--main-color);
+      z-index: -1;
+
+      & #progress-status {
+        width: 0%;
+        background-color: var(--second-color);
+        height: var(--border-size);
+        transition: width 400ms linear;
+      }
+    }
+  }
+}
+
+:where(.indicator) {
+  width: 30px;
+  height: 30px;
+  border: solid var(--border-size) var(--main-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  -webkit-transition: all ease 0.8s;
+  -moz-transition: all ease 0.8s;
+  transition: all ease 0.8s;
+
+  &.active {
+    border: solid var(--border-size) var(--second-color);
+  }
+}
+
+.progress-controls {
+  width: 300px;
+  display: flex;
+
+  & button {
+    padding: 10px 30px 10px 30px;
+    border: none;
+    border-radius: 3px;
+    background-color: var(--main-color);
+    color: white;
+    margin-right: 10px;
+
+    &.active {
+      background-color: var(--second-color);
+
+      &:active {
+        padding: 9px 29px 9px 29px;
+      }
+    }
+
+    &:disabled {
+      background-color: var(--main-color);
+    }
+  }
+}
+
+.button-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
