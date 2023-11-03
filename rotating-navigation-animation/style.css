@@ -1,0 +1,139 @@
+:root {
+  font-family: 'Outfit', sans-serif;
+  font-family: 'Roboto', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #333333;
+}
+
+.container {
+  position: relative;
+
+  & .circular-menu {
+    position: absolute;
+    top: -100px;
+    left: -100px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: #FF7979;
+    z-index: 1;
+    transform-origin: center center;
+    transform: rotate(0deg);
+    transition: transform 600ms linear;
+
+    &.circular-menu--rotate {
+      transform: rotate(-100deg);
+    }
+
+    & .menu-icon {
+      position: absolute;
+      top: 128px;
+      left: 128px;
+      width: 50px;
+      fill: white;
+
+      &.close {
+        left: 32px;
+        top: 117px;
+        transform: rotate(6deg);
+      }
+    }
+  }
+
+  & article {
+    width: 100%;
+    height: fit-content;
+    background-color: white;
+    transform-origin: left top;
+    transform: rotate(0deg);
+    transition: transform 800ms linear;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 5% 20% 5% 20%;
+    text-align: justify;
+
+
+    & .article-title {
+      font-size: 32px;
+      line-height: 30px;
+      /* margin-bottom: 30px; */
+
+      & .author {
+        font-size: small;
+      }
+    }
+
+    & .article-body {
+      font-size: 14px;
+      margin-top: 20px;
+
+      & p,
+      h2 {
+        margin-bottom: 20px;
+      }
+    }
+
+
+    &.container--rotate {
+      transform: rotate(-20deg);
+    }
+  }
+
+  & #navigation {
+    width: 300px;
+    position: absolute;
+    top: 735px;
+    left: -260px;
+    transition: all 800ms linear;
+    fill: white;
+    color: white;
+
+    &.navigation--movement {
+      left: 25px;
+    }
+
+    & .menu-item {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      transition: transform 300ms linear;
+
+      &.menu-item--translateX1 {
+        transition: transform 600ms cubic-bezier(0.47, -0.34, 0.58, 0.88);
+        transform: translateX(25px);
+      }
+
+      &.menu-item--translateX2 {
+        transition: transform 600ms cubic-bezier(0.47, -0.34, 0.58, 0.88);
+        transform: translateX(50px);
+      }
+    }
+  }
+
+}
+
+:where(ul) {
+  list-style: none;
+
+  & span {
+    margin-left: 12px;
+    margin-bottom: 30px;
+  }
+}
+
+:where(img) {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+
+}
